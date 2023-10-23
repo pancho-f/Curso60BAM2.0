@@ -59,6 +59,9 @@ header{
     left: 10px;
     border-radius: 50%;
 }
+#banner{
+    object-fit: cover;
+}
 #profile-info{
     display: flex;
     flex-direction: column;
@@ -73,11 +76,11 @@ header{
 }
 .entry .img-container{
     height: 224px;
-    width: 112px;
     margin-top: 15px;
 }
 .img-container img{
     height: 100%;
+    max-width: 140px;
 }
 .entrytext{
     display: flex;
@@ -102,8 +105,15 @@ header{
     margin: 20px 0px;
     justify-content: space-around;
 }
-.project .img-container{
-    background-image: url(https://placehold.co/201x233);
+.project:nth-child(2) .img-container{
+    background-image: url("../IMG/proyecto1.png");
+    background-size: cover;
+    background-position: center, center;
+    min-height: 233px;
+    width: 201px;
+}
+.project:nth-child(3) .img-container{
+    background-image: url("../IMG/proyecto2.png");
     background-size: cover;
     background-position: center, center;
     min-height: 233px;
@@ -130,6 +140,18 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+#links img{
+    height: 1em;
+    margin-right: 4px;
+}
+#links p, #links a{
+    display: flex;
+    align-items: center;
+}
+#links a{
+    color: #656565;
+    text-decoration: none;
 }
 /* animaciones / trancisiones */
 body > section img, #proyectos .img-container {
@@ -188,5 +210,11 @@ body > section img:hover, #proyectos .img-container:hover {
     }
     #profile, #profile-info{
         padding: 0px 2%;
+    }
+    #links{
+        display: flex;
+    }
+    #links img{
+        margin-left: 4vw;
     }
 }
