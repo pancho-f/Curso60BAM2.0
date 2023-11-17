@@ -1,20 +1,4 @@
-/* colores: */
-body{
-    color: rgb(245, 245, 245);
-    background-color: rgb(0, 0, 0);
-}
-#tr{
-    background-color: black;
-}
-.container{
-    background-color: rgb(25, 25, 25);
-}
-footer{
-    background-color: rgb(24 24 24);
-    color: #656565;
-}
-
-/* estilos de la página en version móvil: */
+/* estilos generales */
 html{
     scroll-behavior: smooth;
 }
@@ -24,10 +8,12 @@ body{
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;   
 }
+/* se establecen los tamaños y margenes de los titulos y textos */
 h1{font-size: 2.7em; margin: 5px 0px;}
 h2{font-size: 2em; margin: 5px 0px;}
 h3{font-size: 1.75em; margin: 5px 0px;}
 p{font-size: 1.12em; margin: 5px 0px;}
+/* la clase container se va a usar para divs importantes */
 .container{
     max-width: 1400px;
     margin: 0px 0% 1em;
@@ -35,7 +21,8 @@ p{font-size: 1.12em; margin: 5px 0px;}
     display: flex;
     flex-direction: column;
 }
-#tr{
+/* estilos del contenido en orden descendiente */
+#esquina-sup-izq{
     display: flex;
     justify-content: flex-end;
     padding: 1%;
@@ -44,15 +31,20 @@ header{
     flex-direction: column;
     display: flex;
 }
-#namecard > img{
+#esquina-sup-izq button{
+    border: none;
+    background-color: rgba(83, 83, 83, 0);
+    font-size: 25px;
+}
+#presentacion > img{
     height: auto;
     width: 100%;
     max-height: 15vh;
 }
-#namecard .img-container{
+#presentacion .img-container{
     height: 4vh;
 }
-#namecard .img-container img{
+#presentacion .img-container img{
     height: 10vh;
     position: relative;
     top: -6vh;
@@ -62,19 +54,19 @@ header{
 #banner{
     object-fit: cover;
 }
-#profile-info{
+#perfil-info{
     display: flex;
     flex-direction: column;
 }
-#profile-info p{
+#perfil-info p{
     margin: 18px 0px 13px;
 }
-.entry{
+.entrada{
     display: flex;
     flex-direction: row;
     margin: 20px 0px;
 }
-.entry .img-container{
+.entrada .img-container{
     height: 224px;
     margin-top: 15px;
 }
@@ -82,58 +74,129 @@ header{
     height: 100%;
     max-width: 140px;
 }
-.entrytext{
+.entradatexto{
     display: flex;
     flex-direction: column;
     width: 70%;
     padding-left: 15px;
 }
-.skills{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.lista-habilidades ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 5%;
 }
-.skills img{
-    height: 30%;
-    width: 30%;
-    margin: 1.5% 0px;
-    border-radius: 50%;
+.lista-habilidades li{
+    list-style-type: none;
+    height: 2em;
+    font-weight: 500;
 }
-.project{
+.lista-habilidades i{
+    text-align: center;
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.entradaproyecto{
     display: flex;
     flex-direction: row;
     margin: 20px 0px;
     justify-content: space-around;
 }
-.project:nth-child(2) .img-container{
+/* este estilo utiliza la subclase "nth-child(n)" que permite copiar y pegar para nuevos proyectos que se agreguen en el futuro */
+.entradaproyecto:nth-child(2) .img-container{
     background-image: url("../IMG/proyecto1.png");
     background-size: cover;
     background-position: center, center;
     min-height: 233px;
     width: 201px;
 }
-.project:nth-child(3) .img-container{
+.entradaproyecto:nth-child(3) .img-container{
     background-image: url("../IMG/proyecto2.png");
     background-size: cover;
     background-position: center, center;
     min-height: 233px;
     width: 201px;
 }
-.project-text{
+.proyecto-texto{
     display: flex;
     flex-direction: column;
     width: 60%;
     padding-right: 10px;    
 }
-.project-text span{
+.proyecto-texto span{
     display: flex;
     align-items: baseline;
 }
-.project-text span p{
+.proyecto-texto span p{
     margin-left: 0.5em;
+}
+.botonvisitar{
+    padding: 5px 10px;
+    font-size: 1.12em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #303030;
+    border: 2px solid #003e6d;
+    border-radius: 10px;
+    box-shadow: 0px 5px 0px #003e6d;
+    max-width: 86px;
+    max-height: 21px;
+    transition: all 0.3s ease;
+}
+.botonapagado{
+    padding: 5px 10px;
+    margin-top: 4px;
+    font-size: 1.12em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #c0c0c0;
+    color: #222222;
+    border: 2px solid #30404d;
+    border-radius: 10px;
+    max-width: 86px;
+    max-height: 21px;
 }
 #proyectos .container{
     margin-bottom: 10px;
+}
+.contactocuerpo{
+    display: flex;
+    justify-content: space-around;
+}
+.contactocuerpo iframe{
+    width: 36vw;
+}
+form{
+    margin: 10px 30px;
+}
+input[type='text'], input[type='email'] {
+    border: 2px solid #2F5A78;
+    width: 150px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+textarea {
+    border: 1px solid #2F5A78;
+    width: 203px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+label {
+    font-weight: bold;
+}
+input[type='submit'] {
+    background-color: #2F5A78;
+    border: none;
+    border-radius: 7px;
+    padding: 7px 15px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 7px;
 }
 footer{
     padding: 5px 10px;
@@ -150,7 +213,6 @@ footer{
     align-items: center;
 }
 #links a{
-    color: #656565;
     text-decoration: none;
 }
 /* animaciones / trancisiones */
@@ -160,9 +222,25 @@ body > section img, #proyectos .img-container {
 body > section img:hover, #proyectos .img-container:hover {
     transform: scale(1.2);
 } 
-#habilidades *{
-    transition: none;
-    transform: none;
+#esquina-sup-izq button i{
+    transition: transform 1s ease, rotate 1s ease;
+}
+#esquina-sup-izq button i:hover{
+    transform: scale(1.175);
+    rotate: 345deg;
+}
+.botonvisitar:hover {
+    background-color: #c0c0c0;
+    color: #222222;
+    border: 2px solid #30404d;
+    box-shadow: 0px 5px 0px #30404d;
+}
+
+.botonvisitar:active {
+    background-color: #ffffff;
+    color: black;
+    box-shadow: none;
+    transform: translateY(4px);
 }
 
 /* @media contiene el estilo para el ancho de pantalla de 720 pixeles o más */
@@ -174,42 +252,48 @@ body > section img:hover, #proyectos .img-container:hover {
     section{
         margin: 0% 10%;
     }
-    #tr{
+    #esquina-sup-izq{
         position: fixed;
         width: 100%;
     }
-    #tr button{
+    #esquina-sup-izq button{
         margin-right: 2%;
     }
     #banner{
         margin-top: 35px;
         border-radius: 20px 20px 0px 0px;
     }
-    #tr{
+    #esquina-sup-izq{
         padding: 7px;
     }
-    #namecard{
+    #presentacion{
         display: flex;
         flex-direction: column;
     }
-    #namecard .container{
+    #presentacion .container{
         border-radius: 0px 0px 20px 20px;
     }
-    #namecard .img-container img{
+    #presentacion .img-container img{
         height: 10vw;       
         max-height: 125px;
     }
-    #namecard .img-container{
+    #presentacion .img-container{
         height: 6vw;       
     }
-    .entry{
+    .entrada{
         margin: 20px 5%;
     }
     .container h1{
         margin: 5px 19px;
     }
-    #profile, #profile-info{
+    #perfil, #perfil-info{
         padding: 0px 2%;
+    }
+    .lista-habilidades ul{
+        padding-left: 10%;
+    }
+    .contactocuerpo iframe{
+        border-radius: 20px;
     }
     #links{
         display: flex;
